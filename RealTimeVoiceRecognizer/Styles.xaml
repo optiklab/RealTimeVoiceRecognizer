@@ -1,0 +1,262 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <!-- Status check box style -->
+    <ControlTemplate
+        x:Key="CheckBoxTemplate"
+        TargetType="{x:Type CheckBox}">
+        <Border
+            Name="CheckBoxBorder"
+            Width="40"
+            Height="40"
+            SnapsToDevicePixels="True">
+            <Label
+                x:Name="InternetLabel">
+                <Image
+                    Name="BackImage"
+                    Source="Images/LampRed3.png"/>
+            </Label>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter TargetName="BackImage" Property="Source" Value="Images/LampGreen3.png" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <!-- Save button style -->
+    <ControlTemplate 
+        x:Key="SaveButtonTemplate" 
+        TargetType="{x:Type Button}">
+        <Border 
+            Name="SaveButtonBorder"
+            BorderBrush="White"
+            BorderThickness="1" 
+            CornerRadius="3"
+            Background="#FF00A2E8"
+            TextBlock.Foreground="White"
+            HorizontalAlignment="Center"
+            SnapsToDevicePixels="True"
+            TextBlock.TextAlignment="Center"
+            TextBlock.FontSize="12"
+            Width="95"
+            Padding="5,3,5,1">
+            <ContentPresenter 
+                RecognizesAccessKey="True" 
+                Margin="{TemplateBinding Padding}">
+            </ContentPresenter>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="SaveButtonBorder" Property="Background" Value="#FF61C2E2" />
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter TargetName="SaveButtonBorder" Property="Background" Value="#FF0073A0" />
+                <Setter TargetName="SaveButtonBorder" Property="BorderBrush" Value="WhiteSmoke" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <!-- Start button style -->
+    <ControlTemplate 
+        x:Key="TabButtonTemplate" 
+        TargetType="{x:Type ToggleButton}">
+        <Border 
+            Name="TabButtonBorder"
+            BorderBrush="Red"
+            BorderThickness="2" 
+            CornerRadius="2"
+            Background="Red"
+            TextBlock.FontWeight="Normal"
+            TextBlock.Foreground="White"
+            TextBlock.FontSize="16"
+            TextBlock.TextAlignment="Center"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            Width="100"
+            Height="30"
+            Padding="0"
+            SnapsToDevicePixels="True">
+            <ContentPresenter
+                x:Name="ButtonPresenter"
+                RecognizesAccessKey="True" 
+                Margin="{TemplateBinding Padding}"
+                Content="Start" >
+            </ContentPresenter>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter TargetName="TabButtonBorder" Property="Background" Value="Green" />
+                <Setter TargetName="TabButtonBorder" Property="BorderBrush" Value="Green" />
+                <Setter TargetName="ButtonPresenter" Property="Content" Value="Stop" />
+            </Trigger>
+
+            <Trigger Property="IsPressed" Value="True">
+                <Setter TargetName="TabButtonBorder" Property="Background" Value="Violet" />
+                <Setter TargetName="TabButtonBorder" Property="BorderBrush" Value="Violet" />
+            </Trigger>
+
+            <!-- dark -->
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="TabButtonBorder" Property="Background" Value="DarkRed" />
+                <Setter TargetName="TabButtonBorder" Property="BorderBrush" Value="DarkRed" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <!-- Close button style -->
+    <ControlTemplate 
+        x:Key="CloseButtonTemplate" 
+        TargetType="{x:Type Button}">
+        <Border 
+            Name="CloseButtonBorder"
+            BorderBrush="White"
+            BorderThickness="1" 
+            CornerRadius="2"
+            Background="DarkGray"
+            TextBlock.Foreground="White"
+            HorizontalAlignment="Center"
+            SnapsToDevicePixels="True"
+            Width="25"
+            Height="25"
+            Margin="2,2,2,2">
+            <Grid
+                Width="Auto"
+                Height="Auto">
+                <Path 
+                    Name="Krestik1"
+                    Stroke="White"
+                    StrokeThickness="3">
+                    <Path.Data>
+                        <LineGeometry
+                            StartPoint="3,3"
+                            EndPoint="20,20"></LineGeometry>
+                    </Path.Data>
+                </Path>
+                <Path 
+                    Name="Krestik2"
+                    Stroke="White"
+                    StrokeThickness="3">
+                    <Path.Data>
+                        <LineGeometry
+                            StartPoint="3,20"
+                            EndPoint="20,3"></LineGeometry>
+                    </Path.Data>
+                </Path>
+                <ContentPresenter 
+                    RecognizesAccessKey="True" 
+                    Margin="{TemplateBinding Padding}"
+                    >
+                </ContentPresenter>
+            </Grid>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="CloseButtonBorder" Property="Background" Value="LightGray" />
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter TargetName="CloseButtonBorder" Property="Background" Value="Gray" />
+                <Setter TargetName="CloseButtonBorder" Property="BorderBrush" Value="WhiteSmoke" />
+                <Setter TargetName="Krestik1" Property="Stroke" Value="WhiteSmoke" />
+                <Setter TargetName="Krestik2" Property="Stroke" Value="WhiteSmoke" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <!-- About button style -->
+    <ControlTemplate 
+        x:Key="AboutButtonTemplate" 
+        TargetType="{x:Type Button}">
+        <Border 
+            Name="AboutButtonBorder"
+            BorderBrush="White"
+            BorderThickness="1" 
+            CornerRadius="2"
+            Background="DarkGray"
+            TextBlock.FontWeight="Bold"
+            TextBlock.Foreground="White"
+            HorizontalAlignment="Center"
+            Width="25"
+            Height="25"
+            Padding="6,3,1,1"
+            SnapsToDevicePixels="True"
+            Margin="2,2,2,2">
+            <Grid
+                Width="Auto"
+                Height="Auto">
+                <ContentPresenter 
+                    RecognizesAccessKey="True" 
+                    Margin="{TemplateBinding Padding}"
+                    >
+                </ContentPresenter>
+            </Grid>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="AboutButtonBorder" Property="Background" Value="LightGray" />
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter TargetName="AboutButtonBorder" Property="Background" Value="Gray" />
+                <Setter TargetName="AboutButtonBorder" Property="BorderBrush" Value="WhiteSmoke" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <!-- Minimize button style -->
+    <ControlTemplate 
+        x:Key="MinimizeButtonTemplate" 
+        TargetType="{x:Type Button}">
+        <Border 
+            Name="MinimizeButtonBorder"
+            BorderBrush="White"
+            BorderThickness="1" 
+            CornerRadius="2"
+            Background="DarkGray"
+            TextBlock.Foreground="White"
+            HorizontalAlignment="Center"
+            Width="25"
+            Height="25"
+            Padding="6,3,1,1"
+            SnapsToDevicePixels="True"
+            Margin="2,2,2,2">
+            <Grid
+                Width="Auto"
+                Height="Auto">
+                <Path 
+                    Name="Palochka"
+                    Stroke="White"
+                    StrokeThickness="3">
+                    <Path.Data>
+                        <LineGeometry
+                            StartPoint="-2,10"
+                            EndPoint="10,10"></LineGeometry>
+                    </Path.Data>
+                </Path>
+                <ContentPresenter 
+                    RecognizesAccessKey="True" 
+                    Margin="{TemplateBinding Padding}"
+                    >
+                </ContentPresenter>
+            </Grid>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="MinimizeButtonBorder" Property="Background" Value="LightGray" />
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter TargetName="MinimizeButtonBorder" Property="Background" Value="Gray" />
+                <Setter TargetName="MinimizeButtonBorder" Property="BorderBrush" Value="WhiteSmoke" />
+                <Setter TargetName="Palochka" Property="Stroke" Value="WhiteSmoke" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <!-- TextBlock style -->
+    <Style x:Key="TextBlocks" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Foreground" Value="#FF404040" />
+        <Setter Property="FontWeight" Value="Normal" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+    </Style>
+    
+</ResourceDictionary>

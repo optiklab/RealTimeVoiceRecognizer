@@ -1,0 +1,82 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="RealTimeVoiceRecognizer.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="TempFolder" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Temp</Value>
+    </Setting>
+    <Setting Name="SelectedCulture" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Russian (Russia)</Value>
+    </Setting>
+    <Setting Name="SupportedCultures" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;en-AU,English (Australia)&lt;/string&gt;
+  &lt;string&gt;en-CA,English (Canada)&lt;/string&gt;
+  &lt;string&gt;en-GB,English (United Kingdom)&lt;/string&gt;
+  &lt;string&gt;en-IN,English (India)&lt;/string&gt;
+  &lt;string&gt;en-NZ,English (New Zealand)&lt;/string&gt;
+  &lt;string&gt;en-US,English (United States)&lt;/string&gt;
+  &lt;string&gt;en-ZA,English (South Africa)&lt;/string&gt;
+  &lt;string&gt;af-ZA,Afrikaans (South Africa)&lt;/string&gt;
+  &lt;string&gt;ar-AE,Arabic (U.A.E.)&lt;/string&gt;
+  &lt;string&gt;ar-BH,Arabic (Bahrain)&lt;/string&gt;
+  &lt;string&gt;ar-DZ,Arabic (Algeria)&lt;/string&gt;
+  &lt;string&gt;ar-EG,Arabic (Egypt)&lt;/string&gt;
+  &lt;string&gt;ar-IQ,Arabic (Iraq)&lt;/string&gt;
+  &lt;string&gt;ar-JO,Arabic (Jordan)&lt;/string&gt;
+  &lt;string&gt;ar-KW,Arabic (Kuwait)&lt;/string&gt;
+  &lt;string&gt;ar-LB,Arabic (Lebanon)&lt;/string&gt;
+  &lt;string&gt;ar-LY,Arabic (Libya)&lt;/string&gt;
+  &lt;string&gt;ar-MA,Arabic (Morocco)&lt;/string&gt;
+  &lt;string&gt;ar-OM,Arabic (Oman)&lt;/string&gt;
+  &lt;string&gt;ar-QA,Arabic (Qatar)&lt;/string&gt;
+  &lt;string&gt;ar-SA,Arabic (Saudi Arabia)&lt;/string&gt;
+  &lt;string&gt;ar-SY,Arabic (Syria)&lt;/string&gt;
+  &lt;string&gt;ar-TN,Arabic (Tunisia)&lt;/string&gt;
+  &lt;string&gt;ar-YE,Arabic (Yemen)&lt;/string&gt;
+  &lt;string&gt;cs-CZ,Czech (Czech Republic)&lt;/string&gt;
+  &lt;string&gt;nl-BE,Dutch (Belgium)&lt;/string&gt;
+  &lt;string&gt;fr-FR,French (France)&lt;/string&gt;
+  &lt;string&gt;de-DE,German (Germany)&lt;/string&gt;
+  &lt;string&gt;it-IT,Italian (Italy)&lt;/string&gt;
+  &lt;string&gt;id-ID,Indonesian (Indonesia)&lt;/string&gt;
+  &lt;string&gt;ja-JP,Japanese (Japan)&lt;/string&gt;
+  &lt;string&gt;ko-KR,Korean (Korea)&lt;/string&gt;
+  &lt;string&gt;zh-CN,Chinese (Simplified)&lt;/string&gt;
+  &lt;string&gt;zh-TW,Chinese (Traditional, Taiwan)&lt;/string&gt;
+  &lt;string&gt;ms-MY,Malay (Malaysia)&lt;/string&gt;
+  &lt;string&gt;pl-PL,Polish (Poland)&lt;/string&gt;
+  &lt;string&gt;pt-BR,Portuguese (Brazil)&lt;/string&gt;
+  &lt;string&gt;es-AR,Spanish (Argentina)&lt;/string&gt;
+  &lt;string&gt;es-BO,Spanish (Bolivia)&lt;/string&gt;
+  &lt;string&gt;es-CL,Spanish (Chile)&lt;/string&gt;
+  &lt;string&gt;es-CO,Spanish (Colombia)&lt;/string&gt;
+  &lt;string&gt;es-CR,Spanish (Costa Rica)&lt;/string&gt;
+  &lt;string&gt;es-DO,Spanish (Dominican Republic)&lt;/string&gt;
+  &lt;string&gt;es-EC,Spanish (Ecuador)&lt;/string&gt;
+  &lt;string&gt;es-GT,Spanish (Guatemala)&lt;/string&gt;
+  &lt;string&gt;es-HN,Spanish (Honduras)&lt;/string&gt;
+  &lt;string&gt;es-MX,Spanish (Mexico)&lt;/string&gt;
+  &lt;string&gt;es-NI,Spanish (Nicaragua)&lt;/string&gt;
+  &lt;string&gt;es-PA,Spanish (Panama)&lt;/string&gt;
+  &lt;string&gt;es-PE,Spanish (Peru)&lt;/string&gt;
+  &lt;string&gt;es-PR,Spanish (Puerto Rico)&lt;/string&gt;
+  &lt;string&gt;es-PY,Spanish (Paraguay)&lt;/string&gt;
+  &lt;string&gt;es-SV,Spanish (El Salvador)&lt;/string&gt;
+  &lt;string&gt;es-US,Spanish (United States)&lt;/string&gt;
+  &lt;string&gt;es-UY,Spanish (Uruguay)&lt;/string&gt;
+  &lt;string&gt;es-VE,Spanish (Bolivarian Republic of Venezuela)&lt;/string&gt;
+  &lt;string&gt;ru-RU,Russian (Russia)&lt;/string&gt;
+  &lt;string&gt;tr-TR,Turkish (Turkey)&lt;/string&gt;
+  &lt;string&gt;zu-ZA,isiZulu (South Africa)&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="AutomaticallySaveText" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="DefaultLogFile" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Temp\default.txt</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,362 @@
+﻿<Window
+    x:Class="RealTimeVoiceRecognizer.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:RealTimeVoiceRecognizer"
+    WindowStartupLocation="CenterScreen"
+    Height="440"
+    Width="600"
+    Grid.IsSharedSizeScope="False" 
+    VerticalAlignment="Stretch" 
+    HorizontalAlignment="Center" 
+    HorizontalContentAlignment="Center" 
+    WindowState="Normal" 
+    Visibility="Visible" 
+    AllowsTransparency="True"
+    WindowStyle="None"
+    Background="Transparent"
+    SnapsToDevicePixels="True">
+    <Border
+        CornerRadius="30,0,30,30"
+        BorderThickness="1"
+        BorderBrush="Black"
+        Background="LightGray" 
+        MouseLeftButtonDown="Border_MouseLeftButtonDown">
+
+        <Grid
+            Margin="20,40,20,20"
+            HorizontalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.6*"></RowDefinition>
+                <RowDefinition Height="0.4*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+
+            <!-- Window header -->
+            <Border
+                VerticalAlignment="Top"
+                CornerRadius="30,0,0,0"
+                Margin="-21,-41,-21,0"
+                BorderThickness="1"
+                BorderBrush="Black"
+                Background="White">
+                <Label
+                    Height="30"
+                    Name="HeaderLabel" 
+                    Width="Auto"
+                    VerticalContentAlignment="Top"
+                    HorizontalContentAlignment="Right"
+                    FontSize="12"
+                    Foreground="Black"
+                    HorizontalAlignment="Center">Realtime Voice Recognizer v 1.0</Label>
+            </Border>
+
+            <Image
+                Margin="10,-40,-20,0"
+                Height="28"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Source="Images/GoogleVoice.png" />
+
+            <!-- Header buttons: Close, Minimize, Settings -->
+            <StackPanel
+                Margin="-21,-40,-20,0"
+                Orientation="Horizontal"
+                HorizontalAlignment="Right" 
+                VerticalAlignment="Top">
+                <Button 
+                    x:Uid="AboutButton" 
+                    Name="AboutButton"
+                    Template="{StaticResource AboutButtonTemplate}"
+                    Cursor="Hand"
+                    Click="About_Click"
+                    ToolTip="{StaticResource AboutButtonToolTip}"
+                    Content="?"/>
+
+                <Button 
+                    x:Uid="MinimizeButton" 
+                    Name="MinimizeButton"
+                    Template="{StaticResource MinimizeButtonTemplate}"
+                    Cursor="Hand"
+                    Click="MinimizeIt_Click"
+                    ToolTip="{StaticResource MinimizeButtonToolTip}" />
+
+                <Button 
+                    x:Uid="CloseWindow" 
+                    Name="CloseWindow"
+                    Template="{StaticResource CloseButtonTemplate}"
+                    Cursor="Hand"
+                    Click="CancelIt_Click"
+                    ToolTip="{StaticResource CloseButtonToolTip}" />
+            </StackPanel>
+
+            <TabControl
+                Name="tabControl"
+                Grid.Row="0"
+                TabStripPlacement="Bottom">
+                <TabItem
+                    x:Name="MainTab"
+                    Header="Recognition">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.3*"></ColumnDefinition>
+                        <ColumnDefinition Width="0.7*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.8*"></RowDefinition>
+                        <RowDefinition Height="0.2*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid
+                        Row="0"
+                        Column="0">
+                        <Grid
+                            Height="90">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.3*"></ColumnDefinition>
+                                <ColumnDefinition Width="0.8*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.5*"></RowDefinition>
+                                <RowDefinition Height="0.5*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <CheckBox
+                                Name="InternetStatusBox"
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                HorizontalAlignment="Right"
+                                IsEnabled="false"
+                                Template="{StaticResource CheckBoxTemplate}"/>
+                            <Label
+                                VerticalAlignment="Center"
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                FontSize="16">Internet</Label>
+                            <CheckBox
+                                Name="MicrophoneStatusBox"
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                IsEnabled="false"
+                                HorizontalAlignment="Right"
+                                Template="{StaticResource CheckBoxTemplate}" />
+                            <Label
+                                VerticalAlignment="Center"
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                FontSize="16">Microphone</Label>
+                        </Grid>
+                    </Grid>
+
+                    <local:GraphicEqualizerControl
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        x:Name="GraphicEqualizer"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Margin="4" />
+
+                    <ToggleButton
+                        Grid.Row="1"
+                        Name="StopStartSwitch"
+                        Width="100"
+                        Click="StopStartSwitch_Click" 
+                        Template="{StaticResource TabButtonTemplate}" />
+
+                    <Label
+                        Grid.Column="1"
+                        Grid.Row="1"
+                        x:Name="TimerLabel"
+                        FontSize="24"
+                        FontStyle="Normal"
+                        FontWeight="DemiBold"
+                        Foreground="White"
+                        Background="Black"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        HorizontalContentAlignment="Center"
+                        MinHeight="35"
+                        Margin="4,0,4,0"/>
+                </Grid>
+
+            </TabItem>
+                <TabItem
+                    x:Name="SettingsTab"
+                    Header="Settings">
+                    <Grid Margin="4">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.3*" />
+                            <RowDefinition Height="0.35*" />
+                            <RowDefinition Height="0.15*" />
+                            <RowDefinition Height="0.2*" />
+                        </Grid.RowDefinitions>
+                        <Grid
+                            Margin="30,0,30,0"
+                            Grid.Row="0"
+                            Grid.Column="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width=".5*" />
+                                <ColumnDefinition Width=".5*" />
+                            </Grid.ColumnDefinitions>
+                            <StackPanel
+                                Margin="0,0,5,0"
+                                Grid.Column="0"
+                                Orientation="Vertical">
+                                <Label>Recognizing language:</Label>
+                                <ComboBox
+                                    x:Name="LanguagesSelectControl"
+                                    SelectionChanged="LanguagesSelectControl_SelectionChanged"></ComboBox>
+                            </StackPanel>
+                            <StackPanel
+                                Margin="5,0,0,0"
+                                Grid.Column="1"
+                                Orientation="Vertical">
+                                <Label>Recognizing device:</Label>
+                                <ComboBox
+                                    x:Name="DeviceSelectControl"
+                                    SelectionChanged="DeviceSelectControl_SelectionChanged"></ComboBox>
+                            </StackPanel>
+                        </Grid>
+                        <Grid
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Margin="30,0,30,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.5*" />
+                                <RowDefinition Height="0.5*" />
+                            </Grid.RowDefinitions>
+                            <Label
+                                Grid.Row="0">Temporary working folder (contains temporary information and default log text file):</Label>
+                            <Grid
+                                Margin="0,2,0,0"
+                                Grid.Row="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.79*" />
+                                    <ColumnDefinition Width="0.21*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBox
+                                    x:Name="TemporaryFolderPath"
+                                    TextChanged="TemporaryFolderPath_TextChanged" />
+                                <Button
+                                    Name="OpenTempFolder"
+                                    Grid.Column="1"
+                                    HorizontalAlignment="Right"
+                                    Template="{StaticResource SaveButtonTemplate}" Click="OpenTempFolder_Click">Open folder</Button>
+                            </Grid>
+                        </Grid>
+                        <CheckBox
+                            Margin="30,0,30,0"
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Left"
+                            x:Name="AutomaticallySaveTextCheckBox"
+                            Content="Automatically save recognized text" IsTabStop="False" />
+                        <Grid
+                            Margin="30,2,30,5"
+                            Grid.Row="3"
+                            Grid.Column="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.79*" />
+                                <ColumnDefinition Width="0.21*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBox
+                                x:Name="LogFilePath" />
+                            <Button
+                                Name="OpenLogFile"
+                                Grid.Column="1"
+                                HorizontalAlignment="Right"
+                                Template="{StaticResource SaveButtonTemplate}"
+                                Click="OpenLogFile_Click">Open file</Button>
+                        </Grid>
+                    </Grid>
+                </TabItem>
+                <TabItem
+                    x:Name="CommandsTab"
+                    Header="Commands">
+                    <Grid
+                        Margin="4">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.2*" />
+                            <RowDefinition Height="0.8*" />
+                        </Grid.RowDefinitions>
+                        <StackPanel
+                            Grid.Row="0"
+                            Orientation="Horizontal">
+                        <TextBox
+                            Name="CommandText"
+                            Margin="3"
+                            Width="200">
+                            Type command here...
+                        </TextBox>
+                        <TextBox
+                            Name="ConsoleText"
+                            Margin="3"
+                            Width="200">
+                            Type console command here...
+                        </TextBox>
+                        <Button
+                            Name="AddCommand"
+                            Margin="3"
+                            HorizontalAlignment="Right"
+                            Click="AddCommand_Click">Add</Button>
+                            <!--Template="{StaticResource SaveButtonTemplate}"-->
+                        <Button
+                            Name="RemoveCommand"
+                            Margin="3"
+                            HorizontalAlignment="Right"
+                            Click="RemoveCommand_Click">Remove</Button>
+                        </StackPanel>
+                        <!--ItemsSource="{Binding CommandsCollection, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"-->
+                        <ListView
+                            Name="CommandsListView"
+                            Width="Auto"
+                            Grid.Row="1"
+                            Height="Auto"
+                            Margin="3">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn DisplayMemberBinding="{Binding CommandText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="200" Header="Command" />
+                                    <GridViewColumn DisplayMemberBinding="{Binding ConsoleText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="300" Header="Full console command" />
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+
+            <ListBox
+                Grid.Row="1"
+                Name="recordedText"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                ItemsSource="{Binding ResultsData}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border
+                            BorderThickness="1"
+                            BorderBrush="Blue"
+                            Margin="5"
+                            CornerRadius="4">
+                            <Grid
+                                Margin="3">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.2*" />
+                                    <ColumnDefinition Width="0.8*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock
+                                    FontStyle="Italic"
+                                    Text="{Binding Path=Time}"
+                                    Margin="1"></TextBlock>
+                                <TextBlock
+                                    Width="450"
+                                    TextWrapping="Wrap"
+                                    TextAlignment="Left"
+                                    Grid.Column="1"
+                                    Text="{Binding Path=Data}"
+                                    Margin="1"></TextBlock>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+    </Border></Window>

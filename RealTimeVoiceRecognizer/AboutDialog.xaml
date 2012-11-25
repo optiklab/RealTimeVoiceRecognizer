@@ -1,0 +1,152 @@
+﻿<Window 
+    x:Uid="AboutDialog" 
+    x:Class="RealTimeVoiceRecognizer.AboutDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="О программе" 
+    Height="300" 
+    Width="460"
+    WindowStartupLocation="CenterScreen"
+    ShowInTaskbar="True"
+    Loaded="Window_Loaded" 
+    ResizeMode="NoResize"
+    Grid.IsSharedSizeScope="False" 
+    VerticalAlignment="Stretch" 
+    HorizontalAlignment="Center" 
+    HorizontalContentAlignment="Center" 
+    WindowState="Normal" 
+    Visibility="Visible" 
+    AllowsTransparency="True"
+    WindowStyle="None"
+    Background="Transparent"
+    SnapsToDevicePixels="True">
+    <Border
+        CornerRadius="30,0,30,30"
+        BorderThickness="1"
+        BorderBrush="Black"
+        Background="LightGray">
+        <Grid
+            x:Uid="AboutGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition 
+                    x:Uid="RowDefinition_1" 
+                    Height="30"></RowDefinition>
+                <RowDefinition 
+                    x:Uid="RowDefinition_2" 
+                    Height="35"></RowDefinition>
+                <RowDefinition 
+                    x:Uid="RowDefinition_3"
+                    Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <!-- Window header -->
+            <Border
+                VerticalAlignment="Top"
+                CornerRadius="30,0,0,0"
+                BorderThickness="1"
+                BorderBrush="Black"
+                Background="White">
+                <!-- Made by Label -->
+                <Label
+                    Height="30"
+                    Name="HeaderLabel" 
+                    Width="Auto"
+                    VerticalContentAlignment="Top"
+                    HorizontalContentAlignment="Right"
+                    FontSize="12"
+                    Foreground="Black"
+                    HorizontalAlignment="Center">Realtime Voice Recognizer v 1.0</Label>
+            </Border>
+
+            <!-- Header buttons: Close, Minimize, Settings -->
+            <StackPanel
+                Orientation="Horizontal"
+                HorizontalAlignment="Right" 
+                VerticalAlignment="Top">
+                <Button 
+                    x:Uid="CloseWindow" 
+                    Name="CloseWindow"
+                    Template="{StaticResource CloseButtonTemplate}"
+                    Cursor="Hand"
+                    Click="CloseWindow_Click"
+                    ToolTip="{StaticResource CloseButtonToolTip}" />
+            </StackPanel>
+
+            <StackPanel
+                x:Uid="HeaderStack"
+                Grid.Row="1"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Orientation="Horizontal"
+                Margin="0"></StackPanel>
+
+            <Label
+                Name="WebSite"
+                x:Uid="WebSite"
+                Grid.Row="1"
+                Height="Auto"
+                Width="Auto" 
+                HorizontalAlignment="Left"
+                HorizontalContentAlignment="Right"
+                VerticalContentAlignment="Center"
+                Content="http://www.ayarkov.com"/>
+            <Label
+                Name="Company"
+                x:Uid="Company"
+                Grid.Row="1"
+                Height="Auto"
+                Width="Auto" 
+                HorizontalAlignment="Right"
+                HorizontalContentAlignment="Right"
+                VerticalContentAlignment="Center"
+                Content="{StaticResource MadeByLabel}"/>
+
+            <StackPanel
+                x:Uid="DescriptionStack"
+                Grid.Row="2"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                Margin="20,0,20,0">
+                <TextBlock
+                    Name="Description"
+                    x:Uid="Description"
+                    Style="{StaticResource TextBlocks}"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch" 
+                    TextWrapping="Wrap"
+                    TextAlignment="Left"
+                    Margin="0"/>
+
+                <TextBox
+                    Name="ExactLinkText"
+                    x:Uid="ExactLinkText"
+                    IsReadOnly="True"
+                    TextBlock.FontSize="14"
+                    HorizontalContentAlignment="Center"
+                    Margin="0,0,0,0">
+                    http://www.ayarkov.com/project.php?id=21
+                </TextBox>
+
+                <TextBlock
+                    Name="DescriptionContinue"
+                    x:Uid="DescriptionContinue"
+                    Style="{StaticResource TextBlocks}"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch" 
+                    TextWrapping="Wrap"
+                    TextAlignment="Left"
+                    Margin="0,10,0,0"/>
+
+                <TextBox
+                    Name="TechSupportMail"
+                    x:Uid="TechSupportMail"
+                    IsReadOnly="True"
+                    TextBlock.FontWeight="Bold"
+                    TextBlock.FontSize="14"
+                    HorizontalContentAlignment="Center"
+                    Margin="0,10,0,0">
+                </TextBox>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>
