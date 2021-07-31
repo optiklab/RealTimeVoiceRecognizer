@@ -21,6 +21,9 @@ P.S. 2014. For current moment it doesn't not work because Google changed its API
 
 ![1](https://optiklab.github.io/img/VRec.png)
 
+![2](https://optiklab.github.io/img/VRec1.png)
+
+![3](https://optiklab.github.io/img/VRec2.png)
 
 ## LICENSE
 This software is published under [GPL v3](http://www.gnu.org/licenses/gpl.txt) license.
