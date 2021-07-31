@@ -19,9 +19,9 @@ Also I was inspired to create this application because I wanted to learn WPF tec
 
 P.S. 2014. For current moment it doesn't not work because Google changed its API to published officially and we need to switch to real API.
 
-![1](https://optiklab.github.io/img/VRec.png)
+![1](https://optiklab.github.io/img/VRec1.png)
 
-![2](https://optiklab.github.io/img/VRec1.png)
+![2](https://optiklab.github.io/img/VRec.png)
 
 ![3](https://optiklab.github.io/img/VRec2.png)
 
